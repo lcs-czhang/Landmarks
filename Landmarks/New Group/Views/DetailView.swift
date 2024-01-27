@@ -16,15 +16,12 @@ struct DetailView: View {
                 .scaledToFit()
             
             HStack {
-                Image(systemName: "hand.thumbsdown")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 20)
+                Text(item.isRecommended == true ? "🥳" : "🤢")
+                    .font(.title)
                     .padding(5)
-                
                 Spacer()
             }
-            .padding(.horizontal)
+            .padding(.leading)
             
             Text(item.description)
             .padding(.horizontal)
@@ -33,6 +30,11 @@ struct DetailView: View {
     }
 }
 
+#Preview {
+    NavigationStack {
+        DetailView(item: Banff)
+    }
+}
 #Preview {
     NavigationStack {
         DetailView(item: Banff)
